@@ -13,7 +13,13 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-
+/**
+ * Constructs a new DirectiveParseException.
+ *
+ * @param message the error message
+ * @param errors list of directive parse errors
+ * @param cause the underlying cause
+ */
 package io.cdap.wrangler.api;
 
 /**
@@ -28,11 +34,11 @@ public class ErrorRowException extends Exception {
 
   private boolean showInWrangler;
 
-  public ErrorRowException(String message, int code, boolean showInWrangler) {
+  public ErrorRowException(final String message,final int code,final boolean showInWrangler) {
     this(message, code, showInWrangler, null);
   }
 
-  public ErrorRowException(String message, int code, boolean showInWrangler, Throwable cause) {
+  public ErrorRowException(final String message,final int code,final boolean showInWrangler,final Throwable cause) {
     super(message, cause);
     this.message = message;
     this.code = code;
@@ -43,7 +49,7 @@ public class ErrorRowException extends Exception {
     this(message, code, false);
   }
 
-  public ErrorRowException(String directiveName, String errorMessage, int code) {
+  public ErrorRowException(final String directiveName,final String errorMessage,final int code) {
     this(directiveName, errorMessage, code, null);
   }
 
@@ -54,14 +60,14 @@ public class ErrorRowException extends Exception {
   /**
    * @return Message as why the record errored.
    */
-  public String getMessage() {
+  public final String getMessage() {
     return message;
   }
 
   /**
    * @return code related to the message.
    */
-  public int getCode() {
+  public final int getCode() {
     return code;
   }
 

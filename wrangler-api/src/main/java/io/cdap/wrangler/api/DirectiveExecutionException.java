@@ -1,5 +1,5 @@
 /*
- * Copyright © 2016-2019 Cask Data, Inc.
+ * Copyright © 2017-2019 Cask Data, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -14,34 +14,30 @@
  * the License.
  */
 
-package io.cdap.wrangler.api;
+ package io.cdap.wrangler.api;
 
-/**
- * A Executor specific exception used for communicating issues with execution of pipeline in that step.
- */
-public class DirectiveExecutionException extends Exception {
-  public DirectiveExecutionException(Exception e) {
-    super(e);
-  }
-
-  public DirectiveExecutionException(String message) {
-    super(message);
-  }
-
-  public DirectiveExecutionException(String s, Throwable e) {
-    super(s, e);
-  }
-
-  public DirectiveExecutionException(Throwable e) {
-    super(e);
-  }
-
-  public DirectiveExecutionException(String directiveName, String errorMessage) {
-    this(String.format("Error encountered while executing '%s' : %s", directiveName, errorMessage));
-  }
-
-  public DirectiveExecutionException(String directiveName, String errorMessage, Throwable e) {
-    this(String.format("Error encountered while executing '%s' : %s", directiveName, errorMessage), e);
-  }
-}
-
+ /**
+  * Exception thrown when a directive fails during execution.
+  */
+ public class DirectiveExecutionException extends Exception {
+     private static final long serialVersionUID = 1L;
+ 
+     /**
+      * Creates a new exception with the given message.
+      *
+      * @param message error message
+      */
+     public DirectiveExecutionException(String message) {
+         super(message);
+     }
+ 
+     /**
+      * Creates a new exception with the given message and cause.
+      *
+      * @param message error message
+      * @param cause root cause
+      */
+     public DirectiveExecutionException(String message, Throwable cause) {
+         super(message, cause);
+     }
+ }

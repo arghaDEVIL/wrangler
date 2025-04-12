@@ -13,7 +13,13 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-
+/**
+ * Constructs a new DirectiveParseException.
+ *
+ * @param message the error message
+ * @param errors list of directive parse errors
+ * @param cause the underlying cause
+ */
 package io.cdap.wrangler.api;
 
 import io.cdap.wrangler.api.annotations.Public;
@@ -28,7 +34,7 @@ public final class ErrorRecord extends ErrorRecordBase {
   // Actual row that is errored.
   private final Row row;
 
-  public ErrorRecord(Row row, String message, int code, boolean showInWrangler) {
+  public ErrorRecord(final Row row,final String message,final int code,final boolean showInWrangler) {
     super(message, code, showInWrangler);
     this.row = row;
   }

@@ -216,3 +216,32 @@ Cask is a trademark of Cask Data, Inc. All rights reserved.
 
 Apache, Apache HBase, and HBase are trademarks of The Apache Software Foundation. Used with
 permission. No endorsement by The Apache Software Foundation is implied by the use of these marks.
+
+### `aggregate-stats` Directive
+
+Aggregate byte sizes and time durations across rows.
+
+**Example:**
+
+#   Wrangler Enhancements: Byte Size and Time Duration Unit Parsers
+
+This project enhances the CDAP Wrangler library with native support for parsing byte size and time duration units within recipes. It includes modifications to the grammar, API, and core parser, along with a new `aggregate-stats` directive to facilitate aggregations using these units. [cite: 3, 4, 5, 6, 7]
+
+##   New Features
+
+* **Byte Size Parsing:** Wrangler now supports parsing byte size units (e.g., KB, MB, GB) in recipes. [cite: 10, 11, 12, 13, 14, 15]
+* **Time Duration Parsing:** Wrangler now supports parsing time duration units (e.g., ms, s, minutes) in recipes. [cite: 10, 11, 12, 13, 14, 15]
+* **Aggregate Stats Directive:** A new directive, `aggregate-stats`, has been implemented to aggregate data based on byte size and time duration columns. [cite: 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+
+##   Usage
+
+###   Byte Size and Time Duration Parsing
+
+The grammar has been extended to include `BYTE_SIZE` and `TIME_DURATION` tokens. [cite: 10, 11, 12] This allows you to use these units directly within directive arguments, simplifying calculations and conversions within Wrangler recipes. [cite: 2]
+
+###   Aggregate Stats Directive
+
+The `aggregate-stats` directive is used to calculate aggregates on byte size and time duration columns. [cite: 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+
+**Syntax:**aggregate-stats :<size_column> :<time_column> <target_size_column> <target_time_column> [output_size_unit] [output_time_unit] [aggregation_type]
+**Syntax:**aggregate-stats :data_transfer_size :response_time total_size_mb total_time_sec

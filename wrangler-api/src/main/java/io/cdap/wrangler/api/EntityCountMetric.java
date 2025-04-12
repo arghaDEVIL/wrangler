@@ -13,7 +13,13 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-
+/**
+ * Constructs a new DirectiveParseException.
+ *
+ * @param message the error message
+ * @param errors list of directive parse errors
+ * @param cause the underlying cause
+ */
 package io.cdap.wrangler.api;
 
 /**
@@ -38,18 +44,18 @@ public class EntityCountMetric {
    */
   private final String appEntityTypeName;
 
-  public EntityCountMetric(String name, String appEntityType, String appEntityTypeName, long count) {
+  public EntityCountMetric(final String name,final String appEntityType,final String appEntityTypeName,final long count) {
     this.name = name;
     this.appEntityType = appEntityType;
     this.appEntityTypeName = appEntityTypeName;
     this.count = count;
   }
 
-  public String getName() {
+  public final String getName() {
     return name;
   }
 
-  public String getAppEntityType() {
+  public final String getAppEntityType() {
     return appEntityType;
   }
 

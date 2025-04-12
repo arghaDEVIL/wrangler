@@ -13,14 +13,20 @@
  *  License for the specific language governing permissions and limitations under
  *  the License.
  */
-
+/**
+ * Constructs a new DirectiveParseException.
+ *
+ * @param message the error message
+ * @param errors list of directive parse errors
+ * @param cause the underlying cause
+ */
 package io.cdap.wrangler.api;
 
 /**
  * Class description here.
  */
 public class DirectiveNotFoundException extends Exception {
-  public DirectiveNotFoundException(String s) {
+  public DirectiveNotFoundException(final String s) {
     super(s);
   }
 }

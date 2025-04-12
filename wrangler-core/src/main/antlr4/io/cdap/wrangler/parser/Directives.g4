@@ -14,6 +14,7 @@
  * the License.
  */
 
+
 grammar Directives;
 
 options {
@@ -140,7 +141,7 @@ numberRange
  ;
 
 value
- : String | Number | Column | Bool
+ : String | Number | Column | Bool | BYTE_SIZE | TIME_DURATION
  ;
 
 ecommand
@@ -302,6 +303,18 @@ Comment
 Space
  : [ \t\r\n\u000C]+ -> skip
  ;
+BYTE_SIZE: [0-9]+('.'[0-9]+)? BYTE_UNIT;
+
+fragment BYTE_UNIT: ('B' | 'KB' | 'MB' | 'GB' | 'TB');
+
+
+TIME_DURATION
+  : Digit+ ('.' Digit+)? TIME_UNIT
+  ;
+
+fragment TIME_UNIT
+  : 'ms' | 's' | 'sec' | 'seconds' | 'm' | 'min' | 'minutes'
+  ;
 
 fragment Int
  : '-'? [1-9] Digit* [L]*
